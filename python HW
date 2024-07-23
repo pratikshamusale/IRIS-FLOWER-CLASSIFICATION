@@ -1,0 +1,290 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyMRRW0w9q5CAGoUX2tTp4n9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pratikshamusale/IRIS-FLOWER-CLASSIFICATION/blob/main/python%20HW\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PLE9BZeS9igP",
+        "outputId": "c59ad3b5-0886-405d-b652-8d07c61fa27b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5\n",
+            "328513\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "import math\n",
+        "\n",
+        "\n",
+        "def maxPrimeFactors (n):\n",
+        "\n",
+        "\n",
+        "\tmaxPrime = -1\n",
+        "\n",
+        "\n",
+        "\twhile n % 2 == 0:\n",
+        "\t\tmaxPrime = 2\n",
+        "\t\tn >>= 1\n",
+        "\n",
+        "\n",
+        "\tfor i in range(3, int(math.sqrt(n)) + 1, 2):\n",
+        "\t\twhile n % i == 0:\n",
+        "\t\t\tmaxPrime = i\n",
+        "\t\t\tn = n / i\n",
+        "\n",
+        "\n",
+        "\tif n > 2:\n",
+        "\t\tmaxPrime = n\n",
+        "\n",
+        "\treturn int(maxPrime)\n",
+        "\n",
+        "\n",
+        "n = 15\n",
+        "print(maxPrimeFactors(n))\n",
+        "\n",
+        "n = 25698751364526\n",
+        "print(maxPrimeFactors(n))\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Python program to find sum of given\n",
+        "\n",
+        "\n",
+        "\n",
+        "def productPrimeFactors(n):\n",
+        "\tproduct = 1\n",
+        "\n",
+        "\tfor i in range(2, n+1):\n",
+        "\t\tif (n % i == 0):\n",
+        "\t\t\tisPrime = 1\n",
+        "\n",
+        "\t\t\tfor j in range(2, int(i/2 + 1)):\n",
+        "\t\t\t\tif (i % j == 0):\n",
+        "\t\t\t\t\tisPrime = 0\n",
+        "\t\t\t\t\tbreak\n",
+        "\n",
+        "\n",
+        "\t\t\tif (isPrime):\n",
+        "\t\t\t\tproduct = product * i\n",
+        "\n",
+        "\treturn product\n",
+        "\n",
+        "\n",
+        "\n",
+        "n = 44\n",
+        "print(productPrimeFactors(n))\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dmCUYxtKAdCW",
+        "outputId": "60e4718d-5c05-4424-cb61-fcc551cc3af9"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "22\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Python Program to Find the Factorial of a Number\n",
+        "def factorial(n):\n",
+        "\n",
+        "\n",
+        "    return 1 if (n==1 or n==0) else n * factorial(n - 1)\n",
+        "\n",
+        "\n",
+        "num = 5\n",
+        "print(\"Factorial of\",num,\"is\",factorial(num))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ODr5qgrVAo8b",
+        "outputId": "31b3f7e2-73fa-49a3-e924-95d1537d5b28"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Factorial of 5 is 120\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Python Program for Find sum of odd factors of a number\n",
+        "# Formula based Python3 program\n",
+        "# to find sum of all divisors\n",
+        "# of n.\n",
+        "import math\n",
+        "# Returns sum of all factors\n",
+        "# of n.\n",
+        "def sumofoddFactors( n ):\n",
+        "\n",
+        "# Traversing through all\n",
+        "# prime factors.\n",
+        "res = 1\n",
+        "\n",
+        "# ignore even factors by\n",
+        "# of 2\n",
+        "while n % 2 == 0:\n",
+        "\tn = n // 2\n",
+        "\n",
+        "for i in range(3, int(math.sqrt(n) + 1)):\n",
+        "\n",
+        "\t# While i divides n, print\n",
+        "\t# i and divide n\n",
+        "\tcount = 0\n",
+        "\tcurr_sum = 1\n",
+        "\tcurr_term = 1\n",
+        "\twhile n % i == 0:\n",
+        "\t\tcount+=1\n",
+        "\n",
+        "\t\tn = n // i\n",
+        "\t\tcurr_term *= i\n",
+        "\t\tcurr_sum += curr_term\n",
+        "\n",
+        "\tres *= curr_sum\n",
+        "\n",
+        "# This condition is to\n",
+        "# handle the case when\n",
+        "# n is a prime number.\n",
+        "if n >= 2:\n",
+        "\tres *= (1 + n)\n",
+        "\n",
+        "return res\n",
+        "\n",
+        "# Driver code\n",
+        "n = 30\n",
+        "print(sumofoddFactors(n))\n",
+        "\n",
+        "# This code is contributed by “Sharad_Bhardwaj”.\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "oSNYqi0vA6Yh",
+        "outputId": "9e8e9626-6088-4b7c-ea81-4746ba9b9c42"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "IndentationError",
+          "evalue": "expected an indented block after function definition on line 8 (<ipython-input-6-28e9a7245bcf>, line 12)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-6-28e9a7245bcf>\"\u001b[0;36m, line \u001b[0;32m12\u001b[0m\n\u001b[0;31m    res = 1\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m expected an indented block after function definition on line 8\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# Function to check if binary representation of\n",
+        "# a number is palindrome or not\n",
+        "\n",
+        "def binarypalindrome(num):\n",
+        "\n",
+        "\t# convert number into binary\n",
+        "\tbinary = bin(num)\n",
+        "\n",
+        "\t# skip first two characters of string\n",
+        "\t# because bin function appends '0b' as\n",
+        "\t# prefix in binary representation of\n",
+        "\t# a number\n",
+        "\tbinary = binary[2:]\n",
+        "\n",
+        "\t# now reverse binary string and compare\n",
+        "\t# it with original\n",
+        "\treturn binary == binary[-1::-1]\n",
+        "\n",
+        "# Driver program\n",
+        "if __name__ == \"__main__\":\n",
+        "\tnum = 9\n",
+        "print binarypalindrome(num)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "ET3AwZWiCc2G",
+        "outputId": "e92785df-3c1a-4bd2-d2ec-feb47266811d"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "Missing parentheses in call to 'print'. Did you mean print(...)? (<ipython-input-10-7141af675b9b>, line 22)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-10-7141af675b9b>\"\u001b[0;36m, line \u001b[0;32m22\u001b[0m\n\u001b[0;31m    print binarypalindrome(num)\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m Missing parentheses in call to 'print'. Did you mean print(...)?\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
